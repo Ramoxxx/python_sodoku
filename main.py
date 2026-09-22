@@ -143,29 +143,28 @@ def validate_grid(grid : list)->bool:
                
     return True
 
-def validate_row(row:list):
-    return False
-
+def find_empty_cell(grid:list)->tuple:
+    for row_index,row in enumerate(grid):
+        for col_index,cell in enumerate(row):
+            if cell == 0:                
+                return (row_index,col_index)
+    
 def fill_grid(grid : list) -> list:
     
-    print_grid(grid)
-    
-    sub_grids = get_sub_grids(grid)
-    for sub_grid in sub_grids:
-        print_grid(sub_grid)
-    
-    
-    # for row in grid:
-    #     print(current_grid)
-    
-    
-    
-    return list()
+    empty_cell = find_empty_cell(grid)    
+    if empty_cell is None:
+        return grid
+    else:
+        row, col = empty_cell
+        print(f"row {row}, col {col}")
+        return list()   
     
     
     
 testing_grid = incomplete_grid_01
+print_grid(testing_grid)
 filled_grid = fill_grid(testing_grid)
+print_grid(filled_grid)
 
 # print_grid(testing_grid)    
 # if validate_grid(testing_grid):
