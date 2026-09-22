@@ -99,7 +99,7 @@ def get_sub_grids(grid: list) -> list:
             sub_grid = []
             for row_index in range(start_row,start_row + 3):
                 sub_grid.append(grid[row_index][start_col:start_col + 3])
-        result.append(sub_grid)
+            result.append(sub_grid)
     return result             
     
    
@@ -143,9 +143,22 @@ def validate_grid(grid : list)->bool:
                
     return True
 
+def validate_row(row:list):
+    return False
+
 def fill_grid(grid : list) -> list:
-    current_grid = get_sub_grids(grid)[0]
-    print_grid(current_grid)
+    
+    print_grid(grid)
+    
+    sub_grids = get_sub_grids(grid)
+    for sub_grid in sub_grids:
+        print_grid(sub_grid)
+    
+    
+    # for row in grid:
+    #     print(current_grid)
+    
+    
     
     return list()
     
